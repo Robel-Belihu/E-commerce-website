@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product detail</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/car-icon.png">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/animation.css">
+  <link rel="stylesheet" href="./css/tailwind.css">
+  <link rel="stylesheet" href="./css/ecommy.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Roboto+Slab:wght@300;400&display=swap"
+    rel="stylesheet">
+</head>
+
+<div class="header-2">
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <img src="./images/main logo.png" width="130px">
+      </div>
+      <nav>
+        <ul id="menu-items">
+          <li><a href="./ecommy.html">Home</a></li>
+          <li><a href="./ecom-products.html">Products</a></li>
+          <li><a href="#">Details</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <img src="./images/cart.png" width="30px" height="30px">
+      <img src="./images/menu-icon.png" width="30px" height="30px" class="menu-icon" onclick="toggler()">
+    </div>
+  </div>
+
+  <div class="content lg:px-10 lg:py-16">
+    <div class="gallery">
+      <div class="main bg-black">
+        <button class="gallery-button left" data-direction="-1">
+          <i class="ico ico-previous"></i>
+        </button>
+        <img src="./img/image-product-1.png" alt="" tabindex="1" onclick="toggleClass('.light-box', 'active')"
+          id="main-image" data-index="0" class="md:cursor-pointer mx-auto">
+        <button class="gallery-button right" data-direction="1">
+          <i class="ico ico-next"></i>
+        </button>
+      </div>
+      <div class="caurosel-container">
+        <div class="caurosel flex mt-8"></div>
+      </div>
+    </div>
+    <div class="description">
+      <h5 class="font-bold uppercase lg:text-lg">The Car Company</h5>
+      <h1 class="font-bold capitalize mt-4 text-4xl lg:text-5xl" id="prod-name">Fall one-time Offer</h1>
+      <div class="py-4 text-gray-600 font-sans mr-4">
+        An iconic American automobile, Camaro continues to push the limits of performance and style. With aerodynamic
+        looks and a refined, driver-centric interior, it’s built to seamlessly integrate form, high-powered function
+        and flair.
+      </div>
+      <div class="flex flex-row pb-5 md:flex-col md:justify-between w-[98%] md:w-auto">
+        <div class="flex items-center justify-start space-x-3">
+          <span class="text-2xl lg:text-3xl font-bold" data-price="125.00">$32,599.00</span>
+          <span class="discount ">25%</span>
+        </div>
+        <span class="lg:text-2xl text-base text-gray-400 ml-auto md:ml-0 my-1.5 line-through font-bold">
+          $40748.00
+        </span>
+      </div>
+      <div class="grid grid-rows-2 gap-y-3 md:gap-x-3 grid-cols-1 pr-2 py-1 md:grid-rows-1 md:grid-cols-5">
+        <div class="prod-amnt md:col-span-2">
+          <button class="grid place-items-center" onclick="cartItem(-1)()">
+            <i class="ico ico-minus"></i>
+          </button>
+          <input type="number" id="cart-item-count" onchange="addToCart(this)" class="appearance-none" min="0" max="10"
+            value="0">
+          <button class="grid place-items-center" onclick="cartItem(1)()">
+            <i class="ico ico-plus"></i>
+          </button>
+        </div>
+        <button class="add-to-cart md:col-span-3 rounded-md" id="add-to-cart" onclick="cartItem(1)()">
+          <div class="flex items-center justify-center space-x-2">
+            <i class="ico ico-cart"></i>
+            <span>Purchase</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="light-box">
+    <div class="gallery flex-col mx-auto my-auto">
+      <div class="absolute z-20 top-0 right-1">
+        <button onclick="toggleClass('.light-box', 'active')"
+          class="ico ico-close text-gray-300 hover:text-primary h-9 w-9 z-50"></button>
+      </div>
+      <button class="gallery-button left" data-direction="-1">
+        <i class="ico ico-previous"></i>
+      </button>
+      <div class="main bg-black">
+        <img src="img/image-product-1.jpg" alt="" id="main-image" data-index="0" class="object-cover">
+      </div>
+      <button class="gallery-button right" data-direction="1">
+        <i class="ico ico-next"></i>
+      </button>
+      <div class="caurosel-container">
+        <div class="caurosel flex mt-8"></div>
+      </div>
+    </div>
+  </div>
+  <!-- The body js  -->
+  <script>
+    function toggler() {
+      var menuItems = document.getElementById("menu-items");
+      if (menuItems.style.display === "block") {
+        menuItems.style.display = "none"
+      } else {
+        menuItems.style.display = "block"
+      }
+    }
+  </script>
+  <script src="./lib/anime.min.js"></script>
+  <script src="./js/events.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./js/icons.js"></script>
+  <script src="./js/product-images.js"></script>
+  </body>
+
+</html>
